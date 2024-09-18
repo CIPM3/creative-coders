@@ -1,0 +1,57 @@
+---
+
+const url = "./assets/images/frameworks"
+
+const frameworks = [
+  {
+    name:"html",
+    icon: `${url}/html.svg`
+  },
+  {
+    name:"javascript",
+    icon: `${url}/javascript.svg`
+  },
+  {
+    name:"css",
+    icon: `${url}/css.svg`
+  },
+  {
+    name:"node",
+    icon: `${url}/node.svg`
+  },
+  {
+    name:"firebase",
+    icon: `${url}/firebase.svg`
+  },
+  {
+    name:"react",
+    icon: `${url}/react.svg`
+  },
+  {
+    name:"next",
+    icon: `${url}/next.svg`
+  },
+  {
+    name:"android studio",
+    icon: `${url}/androidStudio.svg`
+  },
+  {
+    name:"kotlin",
+    icon: `${url}/kotlin.svg`
+  },
+  {
+    name:"swift",
+    icon: `${url}/swift.svg`
+  },
+];
+---
+
+<div class="w-full absolute bottom-0">
+    <img src="./assets/images/code.svg" class="object-cover -z-[1]" alt="" />
+
+    <div class="absolute bg-creative_orange/60 flex justify-between items-center gap-x-10 inset-0 w-full px-[7dvw]">
+        {frameworks.map(item=>(
+            <img class="size-24" src={item.icon} alt={item.name}>
+        ))}
+    </div>
+</div>

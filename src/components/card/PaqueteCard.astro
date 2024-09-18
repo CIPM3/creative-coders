@@ -1,0 +1,96 @@
+---
+interface packageType {
+    title:string,
+    price:string,
+    timeline:string,
+    specs:string[]
+}
+
+interface Props {
+    paquete:packageType,
+    index:number
+}
+
+const {paquete,index} = Astro.props
+
+const getColorText = (index:number) => {
+    var color
+
+    if(index === 0){
+        color = "text-white"
+    }
+    if(index === 1){
+        color = "text-creative_weird"
+    }
+    if(index === 2){
+        color = "text-creative_orange"
+    }
+    if(index === 3){
+        color = "text-creative_gray"
+    }
+
+    return color
+}
+
+const getColorBackground = (index:number) => {
+    var bg
+
+    if(index === 0){
+        bg = "bg-white"
+    }
+    if(index === 1){
+        bg = "bg-creative_weird"
+    }
+    if(index === 2){
+        bg = "bg-creative_orange"
+    }
+    if(index === 3){
+        bg = "bg-creative_gray"
+    }
+
+    return bg
+}
+
+const textColor = getColorText(index)
+const bgColor = getColorBackground(index)
+---
+
+<div class="w-full h-fit">
+    <h2
+        class={`text-7xl ${textColor} text-center opacity-50 font-bold`}
+        style="
+          -webkit-text-fill-color: transparent; 
+          -webkit-text-stroke-width: 1px;
+          "
+    >
+        Paquete
+    </h2>
+    <div class={`w-full h-full mt-3 ${bgColor} rounded-md py-4 px-6`}>
+        <!-- TITLE -->
+        <h3 class="text-center font-bold text-creative_secondary text-3xl">
+            {paquete.title}
+        </h3>
+        <h5 class="text-5xl font-bold text-creative_secondary text-center">
+            ${paquete.price}
+        </h5>
+        <p class="text-creative_secondary font-bold text-lg text-center">
+            {paquete.timeline}
+        </p>
+
+        <ul class="w-full my-5">
+            {
+                paquete.specs.map(spec=>(
+                    <li class="text-creative_secondary text-md font-light">
+                        {spec}
+                    </li>
+                ))
+            }
+        </ul>
+
+        <button
+            class="w-full py-4 hover:bg-transparent transition-colors hover:text-creative_secondary hover:border-2 border-creative_secondary bg-creative_secondary mb-5 text-white rounded-lg"
+        >
+            contratar
+        </button>
+    </div>
+</div>

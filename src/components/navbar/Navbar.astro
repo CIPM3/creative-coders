@@ -1,0 +1,48 @@
+---
+import { navModel } from "@hooks/navModel";
+import WsButton from "@components/button/wsButton.astro";
+import NavButton from "@components/button/NavButton";
+
+const { navItems } = navModel;
+---
+
+<!-- Renderizar los botones de navegación -->
+<nav id="navbar" class="px-[7dvw] transition-colors duration-300  flex z-[99] fixed w-full py-5">
+  <div class="w-[20%] flex items-center">
+    <a href="/">
+      <img src="./assets/svg/logo.svg" alt="logo" />
+    </a>
+  </div>
+  <div class="w-[40%] flex items-center justify-between">
+    {
+      navItems.map((item, index) => (
+        <NavButton client:only="react" title={item.title} url={item.url} />
+      ))
+    }
+  </div>
+  <div class="w-[40%] flex items-center justify-end gap-x-10">
+    <img src="./assets/svg/tiktok.svg" alt="" />
+    <img src="./assets/svg/instagram.svg" alt="" />
+    <img src="./assets/svg/facebook.svg" alt="" />
+    <WsButton />
+  </div>
+</nav>
+
+<script>
+  // Acceder al elemento de la navbar
+  const navbar = document.getElementById('navbar');
+
+  // Función para actualizar el fondo de la navbar al hacer scroll
+  function changeNavbarBackground() {
+    if (window.scrollY > 50) { // Ajusta este valor según tus necesidades
+      navbar?.classList.remove('bg-transparent');
+      navbar?.classList.add('bg-creative_primary/70','shadow-xl'); // Asume que quieres un fondo blanco
+    } else {
+      navbar?.classList.remove('bg-creative_primary/70','shadow-xl');
+      navbar?.classList.add('bg-transparent');
+    }
+  }
+
+  // Añadir el evento de scroll al window
+  window.addEventListener('scroll', changeNavbarBackground);
+</script>

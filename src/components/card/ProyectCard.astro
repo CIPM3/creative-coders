@@ -1,0 +1,25 @@
+---
+
+---
+
+<div
+    class="w-full h-[410px] cursor-pointer bg-white rounded-lg overflow-hidden relative group"
+>
+    <img
+        src="./assets/svg/mainImage.svg"
+        class="transition-all duration-[5s] ease-linear absolute w-full h-full top-0 object-cover hover-trigger"
+        alt=""
+    />
+</div>
+
+<style>
+    /* Agrega esta sección en tu archivo CSS */
+    .hover-trigger {
+        top: 0; /* Comienza desde la parte superior */
+        transition: top 5s linear; /* Ajusta la duración y la curva de velocidad según sea necesario */
+    }
+
+    .group:hover .hover-trigger {
+        top: -100%; /* Cambia según el tamaño de tu imagen */
+    }
+</style>

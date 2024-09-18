@@ -1,0 +1,81 @@
+---
+import ServiceItem from '@components/card/ServiceItem.astro';
+
+const services = [
+  {
+    title: "Diseño y Desarrollo web",
+    description: "Diseño personalizado y programación de tu sitio web responsivos con nuestro equipo capacitado",
+    icon: "./assets/svg/pc.svg"
+  },
+  {
+    title: "Diseño y Desarrollo de apps",
+    description: "Diseño y programación de tu aplicación desde 0",
+    icon: "/assets/svg/hardware.svg"
+  },
+  {
+    title: "Rediseño",
+    description: "Servicio de rediseño de sitios webs y aplicaciones",
+    icon: "/assets/svg/pc2.svg"
+  },
+  {
+    title: "Testeo de apps",
+    description: "Realización de testeos para optimizar tu aplicación",
+    icon: "/assets/svg/testApps.svg"
+  },
+  {
+    title: "Diseño de logo",
+    description: "Diseño de logo desde 0, en caso de no poseer ninguno",
+    icon: "/assets/svg/DesingIcon.svg"
+  },
+];
+---
+
+<div class="w-full h-fit bg-creative_secondary py-[7%] px-[7dvw]">
+    <div class="w-full flex items-center gap-x-6  justify-center">
+        <img src="./assets/svg/olasNaranja.svg" alt="">
+        <h3 class="text-[#FA4B00] font-light text-5xl">¿Qué ofrecemos?</h3>
+        <img src="./assets/svg/olasNaranja.svg" alt="">
+    </div>
+    <div class="w-full flex flex-col justify-center items-center">
+      <h2 class="text-white text-6xl font-bold mt-4">Nuestros servicios</h2>
+      <p class="text-white mt-2">Garantizamos los mejores servicios en:</p>
+    </div>
+    <div class="w-full h-fit  mt-10 gap-4">
+      <div class="grid grid-cols-3">
+        <ServiceItem 
+        title={services[0].title} 
+        description={services[0].description} 
+        icon={services[0].icon} 
+        index={0}
+        />
+        <ServiceItem 
+        title={services[1].title} 
+        description={services[1].description} 
+        icon={services[1].icon} 
+        index={1}
+        />
+        <ServiceItem 
+        title={services[2].title} 
+        description={services[2].description} 
+        icon={services[2].icon} 
+        index={2}
+        />
+      </div>
+
+      <div class="grid grid-cols-4">
+        <ServiceItem 
+        title={services[3].title} 
+        description={services[3].description} 
+        icon={services[3].icon} 
+        index={3}
+        />
+        <ServiceItem 
+        title={services[4].title} 
+        description={services[4].description} 
+        icon={services[4].icon} 
+        index={4}
+        />
+      </div>
+      
+    </div>
+  </div>

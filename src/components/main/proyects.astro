@@ -1,0 +1,47 @@
+---
+import ProyectCard from "@components/card/ProyectCard.astro";
+import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
+---
+
+<div class="w-full h-fit relative pt-[5%] bg-creative_secondary">
+    <div class="flex justify-between -z-[1]">
+      <img
+        class="opacity-35 w-[40vw]"
+        src="./assets/svg/Proyects_Icon.svg"
+        alt=""
+      />
+      <img
+        class="opacity-35 w-[40vw] rotate-180"
+        src="./assets/svg/Proyects_Icon.svg"
+        alt=""
+      />
+    </div>
+    <div class="w-full h-full absolute inset-0">
+      <div class="flex flex-col mt-10 items-center justify-center">
+        <h2 class="text-4xl font-light text-creative_orange">
+          Nuestras muestras
+        </h2>
+        <h1 class="text-6xl font-bold text-center mt-3 text-white">
+          Mira algunos de nuestros
+          <br />
+          proyectos
+        </h1>
+      </div>
+
+      <div class="w-full h-fit grid grid-cols-4 gap-6 px-[7dvw] pt-[5%]">
+        {
+          Array.from({ length: 4 }).map((item, index) => (
+            <ProyectCard key={index} />
+          ))
+        }
+      </div>
+      <div class="flex justify-center">
+        <button class="mx-auto text-creative_orange text-xl mt-10 font-light">
+          ver mas
+        </button>
+      </div>
+
+      <!-- Framework Banner -->
+       <FrameworkBanner/>
+    </div>
+  </div>
