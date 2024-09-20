@@ -16,4 +16,8 @@ export default {
 		extend: {},
 	},
 	plugins: [],
+	corePlugins: {
+		// Asegúrate de que scrollBehavior esté habilitado
+		scrollBehavior: true,
+	  },
 }

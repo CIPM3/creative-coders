@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { navModel } from "@hooks/navModel"; // Asegúrate de que este módulo exporte correctamente navModel
 
-const NavItem = ({ title, url }) => {
+const NavItem = ({ title, url,path }) => {
     const { navItems } = navModel
     const item = navItems.find(item => item.title === title);
     const isSelected = item.isSelected;
@@ -11,17 +11,18 @@ const NavItem = ({ title, url }) => {
         window.location.hash = url; // Opcional, dependiendo de si quieres cambiar el hash en la URL
     };
 
+
     return (
         <a
-            href={`#${url}`}
+            href={`${url}`}
             className={`text-white font-bold relative nav-item ${isSelected ? "selected" : ""}`}
             onClick={handleSelect}
         >
             {title}
-            {isSelected && (
+            {path === url && (
                 <img
-                    className="absolute -bottom-2 left-1/3 size-3"
-                    src="./assets/svg/selected.svg"
+                    className="absolute -bottom-3 left-1/3 size-3"
+                    src="./assets/svg/selected_weird.svg"
                     alt="Selected"
                 />
             )}

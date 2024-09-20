@@ -1,4 +1,4 @@
-const title: string = "Bienvenido a CreativeCoders"
+const title: string = "CreativeCoders - Home"
 
 interface NavItem {
     title: string,
@@ -10,11 +10,11 @@ interface NavItem {
 export const navModel = {
     title,
     navItems: [
-      { title: 'Inicio', url: 'inicio', isSelected: false },
-      { title: 'Servicios', url: 'servicios', isSelected: false },
-      { title: 'Paquetes', url: 'paquetes', isSelected: false },
-      { title: 'Muestras', url: 'muestras', isSelected: false },
-      { title: 'Contacto', url: 'contacto', isSelected: false },
+      { title: 'Inicio', url: '/', isSelected: false },
+      { title: 'Servicios', url: '/servicios', isSelected: false },
+      { title: 'Paquetes', url: '/paquetes', isSelected: false },
+      { title: 'Muestras', url: '/muestras', isSelected: false },
+      { title: 'Contacto', url: '/contacto', isSelected: false },
     ],
   
     // Actualiza solo un ítem a isSelected=true y todos los demás a isSelected=false

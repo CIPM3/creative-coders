@@ -1,9 +1,16 @@
 ---
+import type { GetStaticPaths } from "astro";
 import { navModel } from "@hooks/navModel";
 import WsButton from "@components/button/wsButton.astro";
 import NavButton from "@components/button/NavButton";
 
 const { navItems } = navModel;
+
+// Accede a la URL actual en el servidor
+const url = new URL(Astro.request.url);
+// Obtener solo el pathname
+const pathname = url.pathname;
+
 ---
 
 <!-- Renderizar los botones de navegación -->
@@ -15,8 +22,8 @@ const { navItems } = navModel;
   </div>
   <div class="w-[40%] flex items-center justify-between">
     {
-      navItems.map((item, index) => (
-        <NavButton client:only="react" title={item.title} url={item.url} />
+      navItems.map((item) => (
+        <NavButton client:only="react" path={pathname} title={item.title} url={item.url} />
       ))
     }
   </div>
@@ -24,7 +31,9 @@ const { navItems } = navModel;
     <img src="./assets/svg/tiktok.svg" alt="" />
     <img src="./assets/svg/instagram.svg" alt="" />
     <img src="./assets/svg/facebook.svg" alt="" />
-    <WsButton />
+    <div class="px-[2%]">
+      <WsButton />
+    </div>
   </div>
 </nav>
 

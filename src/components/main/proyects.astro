@@ -3,7 +3,7 @@ import ProyectCard from "@components/card/ProyectCard.astro";
 import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
 ---
 
-<div class="w-full h-fit relative pt-[5%] bg-creative_secondary">
+<section class="w-full h-fit proyects-section relative pt-[5%] bg-creative_secondary">
     <div class="flex justify-between -z-[1]">
       <img
         class="opacity-35 w-[40vw]"
@@ -36,12 +36,16 @@ import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
         }
       </div>
       <div class="flex justify-center">
-        <button class="mx-auto text-creative_orange text-xl mt-10 font-light">
+        <a href="/servicios" class="mx-auto text-creative_orange text-xl mt-10 font-light">
           ver mas
-        </button>
+        </a>
       </div>
 
       <!-- Framework Banner -->
        <FrameworkBanner/>
     </div>
-  </div>
+  </section>
+
+  <script>
+    import '@lib/animations/main/proyects.animation'
+  </script>

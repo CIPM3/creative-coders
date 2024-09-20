@@ -1,0 +1,35 @@
+---
+import ContactDesignCard from "@components/card/ContactDesignCard.astro";
+import PrimaryButton from "@components/button/primaryButton";
+import FormInput from "@components/inputs/formInput";
+import FormTextarea from "@components/inputs/formTextarea";
+---
+
+<section class="w-full h-screen grid grid-cols-2 pb-16 gap-x-10 px-[7dvw] bg-creative_secondary">
+    <div class="w-full h-full relative flex flex-col justify-center item ">
+      <img src="./assets/images/contact_icon.svg" class="z-[1]" alt="">
+      <div class="absolute w-full h-full z-[2]">
+        <!-- DESING CARD -->
+         <ContactDesignCard numero={0}/>
+         <ContactDesignCard numero={1}/>
+      </div>
+    </div>
+    <div class="w-full h-full ">
+      <!-- Formulario -->
+       <div class="w-full h-full overflow-hidden bg-white rounded-lg">
+          <div class="w-full py-5 flex bg-creative_orange justify-center">
+            <h2 class="text-white text-4xl font-bold">Cotizar una página web</h2>
+          </div>
+
+          <form class="w-full h-full gap-y-5 flex flex-col py-14 px-[4dvw] ">
+            <FormInput client:only="react" title="nombre" placeholder="Nombre" />
+            <FormInput client:only="react" title="email" placeholder="Correo electrónico" />
+            <FormInput client:only="react" title="phone" placeholder="Número de telefono" />
+
+            <FormTextarea client:only="react" title="message" placeholder="Mensaje"/>
+
+            <PrimaryButton client:only="react" title="Enviar" onClick={()=>{}} />
+          </form>
+       </div>
+    </div>
+ </section>
