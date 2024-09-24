@@ -21,6 +21,9 @@
       "@pages/*": [
         "src/pages/*"
       ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
       "@store/*": [
         "src/store/*"
       ]

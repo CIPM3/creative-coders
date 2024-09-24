@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { navModel } from "@hooks/navModel"; // Asegúrate de que este módulo exporte correctamente navModel
+import { navModel } from "@hooks/navModel"; 
+import {Selected} from "@assets/svg";
+// Asegúrate de que este módulo exporte correctamente navModel
 
 const NavItem = ({ title, url,path }) => {
     const { navItems } = navModel
@@ -21,7 +23,7 @@ const NavItem = ({ title, url,path }) => {
             {title}
             {path === url && (
                 <img
-                    className="absolute -bottom-3 left-1/3 size-3"
+                    className="absolute fill-creative_weird -bottom-3 left-1/3 size-3"
                     src="./assets/svg/selected_weird.svg"
                     alt="Selected"
                 />

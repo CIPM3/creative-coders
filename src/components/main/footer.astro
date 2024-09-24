@@ -2,38 +2,72 @@
 import { navModel } from "@hooks/navModel";
 import WsButton from "@components/button/wsButton.astro";
 
+import { Tiktok,Instagram,Facebook,LogoFooter } from "@assets/svg";
+
 const { navItems } = navModel;
 ---
 
 <footer
-class="w-full h-fit px-[7dvw] grid grid-cols-5 bg-creative_orange py-10"
+  class="w-full h-fit px-[7dvw] grid lg:grid-cols-5 bg-creative_orange py-10
+"
 >
-<a href="/"
-  ><img
-    src="./assets/svg/invertLogo.svg"
-    class="w-full h-[100px]"
-    alt="logo"
-  /></a
->
-<ul
-  class="w-full col-start-2 col-end-4 grid place-content-center grid-cols-2 gap-5 px-[5%]"
->
-  {
-    navItems.map((navitem) => (
-      <li class="w-full  flex justify-center ">
-        <a class=" text-white text-xl font-bold" href={navitem.url}>
-          {navitem.title}
-        </a>
-      </li>
-    ))
-  }
-</ul>
-<div class="w-full flex justify-around pt-2">
-  <img src="./assets/svg/tiktok.svg" class="size-10" alt="" />
-  <img src="./assets/svg/instagram.svg" class="size-10" alt="" />
-  <img src="./assets/svg/facebook.svg" class="size-10" alt="" />
-</div>
-<div class="w-full px-[10%]">
-  <WsButton  />
-</div>
+  <a class="hidden lg:block" href="/">
+    <LogoFooter className="w-full h-[100px]"/>
+  </a>
+  <ul
+    class="w-full hidden col-start-2 col-end-4 lg:grid place-content-center grid-cols-2 gap-5 px-[5%]"
+  >
+    {
+      navItems.map((navitem) => (
+        <li class="w-full  flex justify-center ">
+          <a class=" text-white text-xl font-bold" href={navitem.url}>
+            {navitem.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="w-full hidden lg:flex justify-around pt-2">
+    <Tiktok className="size-10 fill-white" />
+    <Instagram className="size-10 fill-white" />
+    <Facebook className="size-10 fill-white" />
+  </div>
+  <div class="w-full hidden lg:block px-[3%]">
+    <WsButton />
+  </div>
+
+  <!-- RESPONSIVE FOOTER -->
+  <div class="grid grid-cols-2 lg:hidden justify-between  w-full">
+    <LogoFooter className="size-40"/>
+    <div class="flex items-center justify-around">
+      <Tiktok className="size-10 fill-white" />
+      <Instagram className="size-10 fill-white" />
+      <Facebook className="size-10 fill-white" />
+    </div>
+    <div class="col-start-1 col-end-3 md:col-start-1 md:col-end-2">
+      <WsButton />
+      <ul class="grid grid-cols-2 mt-5 md:hidden">
+        {
+          navItems.map((navitem) => (
+            <li class="w-full  flex justify-center ">
+              <a class=" text-white text-xl font-bold" href={navitem.url}>
+                {navitem.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <ul class="md:grid grid-cols-2 mt-5 hidden">
+      {
+        navItems.map((navitem) => (
+          <li class="w-full  flex justify-center ">
+            <a class=" text-white text-xl font-bold" href={navitem.url}>
+              {navitem.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </footer>

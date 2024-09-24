@@ -4,54 +4,130 @@ import { navModel } from "@hooks/navModel";
 import WsButton from "@components/button/wsButton.astro";
 import NavButton from "@components/button/NavButton";
 
+import { MenuSvg,Instagram,LogoResponsive,Facebook,Tiktok,Close } from "@assets/svg";
+
 const { navItems } = navModel;
 
 // Accede a la URL actual en el servidor
 const url = new URL(Astro.request.url);
 // Obtener solo el pathname
 const pathname = url.pathname;
-
 ---
 
 <!-- Renderizar los botones de navegación -->
-<nav id="navbar" class="px-[7dvw] transition-colors duration-300  flex z-[99] fixed w-full py-5">
-  <div class="w-[20%] flex items-center">
+<nav
+  id="navbar"
+  class="px-[3dvw] lg:px-[4dvw] xl:px-[7dvw] transition-colors duration-300 flex justify-between z-[99] fixed w-full py-5
+  "
+>
+  <div class="w-1/2 lg:w-[20%]  flex items-center">
     <a href="/">
-      <img src="./assets/svg/logo.svg" alt="logo" />
+      <img src="./assets/svg/logo.svg" class="w-full" alt="logo" />
     </a>
   </div>
-  <div class="w-[40%] flex items-center justify-between">
+  <div class="w-[40%] hidden lg:flex items-center justify-between">
     {
       navItems.map((item) => (
-        <NavButton client:only="react" path={pathname} title={item.title} url={item.url} />
+        <NavButton
+          client:only="react"
+          path={pathname}
+          title={item.title}
+          url={item.url}
+        />
       ))
     }
   </div>
-  <div class="w-[40%] flex items-center justify-end gap-x-10">
-    <img src="./assets/svg/tiktok.svg" alt="" />
-    <img src="./assets/svg/instagram.svg" alt="" />
-    <img src="./assets/svg/facebook.svg" alt="" />
-    <div class="px-[2%]">
+  <div
+    class="w-1/2 md:w-[40%] flex items-center justify-end lg:gap-x-5 xl:gap-x-10"
+  >
+    <Instagram className="fill-white size-7 hidden lg:block" />
+    <Facebook className="fill-white size-7 hidden lg:block" />
+    <Tiktok className="fill-white size-7 hidden lg:block" />
+    <div class="hidden lg:block px-[2%]">
       <WsButton />
+    </div>
+    <div id="menu" class="cursor-pointer">
+      <MenuSvg className="fill-white lg:hidden" />
+    </div>
+  </div>
+
+  <!-- MENU PHONE TABLET -->
+  <div
+    id="responsive_menu"
+    class="absolute transition-all invisible right-0 top-0 lg:hidden w-screen h-screen bg-creative_primary/70"
+  >
+    <div
+      id="close_menu"
+      class="w-[70%] relative md:w-[60%] px-[4dvw] flex flex-col items-center h-full bg-white ml-auto"
+    >
+
+      <p class="text-creative_secondary text-4xl font-extrabold absolute right-5 top-3 cursor-pointer">X</p>
+
+      <a href="/">
+        <LogoResponsive className="size-40 md:size-60" />
+      </a>
+
+      <ul>
+        {
+          navItems.map((item) => (
+            <li class="w-full text-center gap-y-10 flex flex-col">
+              <a
+                class="text-2xl md:text-4xl my-2 w-full text-creative_secondary font-bold text-center"
+                href={item.url}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="my-10 w-full px-[5dvw] flex gap-x-2 justify-center">
+        <Tiktok className="fill-creative_orange md:size-14 size-10"/>
+        <Instagram className="fill-creative_orange md:size-14 size-10"/>
+        <Facebook className="fill-creative_orange md:size-14 size-10"/>
+      </div>
+
+      <div class="w-full px-[5dvw] md:px-[7dvw] mt-3">
+        <WsButton />
+      </div>
     </div>
   </div>
 </nav>
 
 <script>
   // Acceder al elemento de la navbar
-  const navbar = document.getElementById('navbar');
+  const navbar = document.getElementById("navbar");
+  const menu = document.getElementById("menu");
+  const responsive_menu = document.getElementById("responsive_menu");
+  const close_menu = document.getElementById("close_menu");
+  var isOpenMenu = false
 
   // Función para actualizar el fondo de la navbar al hacer scroll
   function changeNavbarBackground() {
-    if (window.scrollY > 50) { // Ajusta este valor según tus necesidades
-      navbar?.classList.remove('bg-transparent');
-      navbar?.classList.add('bg-creative_primary/70','shadow-xl'); // Asume que quieres un fondo blanco
+    if (window.scrollY > 50) {
+      // Ajusta este valor según tus necesidades
+      navbar?.classList.remove("bg-transparent");
+      navbar?.classList.add("bg-creative_primary/70", "shadow-xl"); // Asume que quieres un fondo blanco
     } else {
-      navbar?.classList.remove('bg-creative_primary/70','shadow-xl');
-      navbar?.classList.add('bg-transparent');
+      navbar?.classList.remove("bg-creative_primary/70", "shadow-xl");
+      navbar?.classList.add("bg-transparent");
+    }
+  }
+
+  function toggleMenu(){
+    isOpenMenu = !isOpenMenu
+    if(isOpenMenu){
+      responsive_menu?.classList.remove("invisible")
+      responsive_menu?.classList.add("block")
+    }else{
+      responsive_menu?.classList.remove("block")
+      responsive_menu?.classList.add("invisible")
     }
   }
 
   // Añadir el evento de scroll al window
-  window.addEventListener('scroll', changeNavbarBackground);
+  window.addEventListener("scroll", changeNavbarBackground);
+  menu?.addEventListener("click",toggleMenu)
+  close_menu?.addEventListener("click",toggleMenu)
 </script>

@@ -1,0 +1,33 @@
+---
+import MainLayout from "@layouts/Layout.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import Footer from "@components/main/footer.astro";
+import RPackages from "@components/main/packages";
+
+
+const title = "CreativeCoders - Paquetes"
+---
+
+<MainLayout title={title}>
+    <Navbar/>
+    <div class="h-fit  bg-creative_secondary">
+        <div class="flex justify-between h-[280vh] md:h-[140vh] lg:h-[110vh] -z-[1]">
+            <img
+              class="opacity-35 w-[40vw]"
+              src="./assets/svg/Proyects_Icon.svg"
+              alt=""
+            />
+            <img
+              class="opacity-35 w-[40vw] rotate-180"
+              src="./assets/svg/Proyects_Icon.svg"
+              alt=""
+            />
+          </div>
+          <div class="absolute pt-[10vh] lg:pt-[5vh] xl:pt-[5vh] inset-0">
+            <RPackages transparent={true} client:only="react" />
+
+          </div>
+    </div>
+
+    <Footer/>
+</MainLayout>

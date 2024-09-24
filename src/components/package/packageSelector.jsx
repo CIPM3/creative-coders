@@ -7,7 +7,7 @@ const PackageSelector = ({ activePackage, setActivePackage }) => {
     <div className="w-full flex flex-col items-center pt-[3%]">
       <div className="flex gap-x-10">
         <button
-          className={`text-3xl transition-all font-light relative ${
+          className={`text-xl md:text-3xl transition-all font-light relative ${
             activePackage === 'web' ? 'text-creative_orange' : 'text-white'
           }`}
           onClick={() => setActivePackage('web')}
@@ -22,7 +22,7 @@ const PackageSelector = ({ activePackage, setActivePackage }) => {
           )}
         </button>
         <button
-          className={`text-3xl transition-all font-light relative ${
+          className={`text-xl md:text-3xl transition-all font-light relative ${
             activePackage === 'app' ? 'text-creative_orange' : 'text-white'
           }`}
           onClick={() => setActivePackage('app')}

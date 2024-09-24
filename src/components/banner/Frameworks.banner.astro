@@ -1,57 +1,64 @@
 ---
-
-const url = "./assets/images/frameworks"
+const url = "./assets/images/frameworks";
 
 const frameworks = [
   {
-    name:"html",
-    icon: `${url}/html.svg`
+    name: "html",
+    icon: `${url}/html.svg`,
   },
   {
-    name:"javascript",
-    icon: `${url}/javascript.svg`
+    name: "javascript",
+    icon: `${url}/javascript.svg`,
   },
   {
-    name:"css",
-    icon: `${url}/css.svg`
+    name: "css",
+    icon: `${url}/css.svg`,
   },
   {
-    name:"node",
-    icon: `${url}/node.svg`
+    name: "node",
+    icon: `${url}/node.svg`,
   },
   {
-    name:"firebase",
-    icon: `${url}/firebase.svg`
+    name: "firebase",
+    icon: `${url}/firebase.svg`,
   },
   {
-    name:"react",
-    icon: `${url}/react.svg`
+    name: "react",
+    icon: `${url}/react.svg`,
   },
   {
-    name:"next",
-    icon: `${url}/next.svg`
+    name: "next",
+    icon: `${url}/next.svg`,
   },
   {
-    name:"android studio",
-    icon: `${url}/androidStudio.svg`
+    name: "android studio",
+    icon: `${url}/androidStudio.svg`,
   },
   {
-    name:"kotlin",
-    icon: `${url}/kotlin.svg`
+    name: "kotlin",
+    icon: `${url}/kotlin.svg`,
   },
   {
-    name:"swift",
-    icon: `${url}/swift.svg`
+    name: "swift",
+    icon: `${url}/swift.svg`,
   },
 ];
 ---
 
-<div class="w-full absolute bottom-0">
-    <img src="./assets/images/code.svg" class="object-cover -z-[1]" alt="" />
+<div class="w-full h-fit absolute bottom-28 md:bottom-14 lg:bottom-0">
+  <img src="./assets/images/code.svg" class="object-cover -z-[1]" alt="" />
 
-    <div class="absolute bg-creative_orange/60 flex justify-between items-center gap-x-10 inset-0 w-full px-[7dvw]">
-        {frameworks.map(item=>(
-            <img class="size-24 framework-item" src={item.icon} alt={item.name}>
-        ))}
-    </div>
+  <div
+    class="absolute h-[20vh] md:h-[15vh] lg:h-full md:mx-auto  bg-creative_orange/60 grid grid-cols-5 lg:grid-flow-col-dense place-content-center gap-5 lg:gap-10 inset-0 w-full px-[7dvw]"
+  >
+    {
+      frameworks.map((item) => (
+        <img
+          class="size-10 md:size-12 lg:size-16 xl:size-24 framework-item"
+          src={item.icon}
+          alt={item.name}
+        />
+      ))
+    }
+  </div>
 </div>
