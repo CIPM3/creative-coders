@@ -21,7 +21,7 @@ const PackagesSection = ({transparent=false}) => {
 
     return (
         <section id='paquetes' 
-        className={`w-full packages-section min-h-screen ${transparent ? "bg-transparent" : "bg-creative_secondary"}  px-[6dvw] md:px-[7dvw] pb-16`}>
+        className={`w-full packages-section overflow-x-hidden min-h-screen ${transparent ? "bg-transparent" : "bg-creative_secondary"}  px-[6dvw] md:px-[7dvw] pb-16`}>
             <div className="w-full flex justify-center pt-[5%]">
                 <h2 className="text-white text-4xl text-center md:text-6xl font-bold">Nuestros paquetes</h2>
             </div>
