@@ -1,6 +1,6 @@
 import React from 'react'
 
-const primaryButton = ({ title, onClick,type }) => {
+const primaryButton = ({ title, onClick,type="button" }) => {
     return (
         <button
             type={type}
