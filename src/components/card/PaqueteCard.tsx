@@ -62,7 +62,7 @@ const PaqueteCard: React.FC<Props> = ({ paquete, index, className }) => {
                         </li>
                     ))}
                 </ul>
-                <PrimaryButton title="contratar" onClick={() => {}} />
+                <PrimaryButton type="button" title="contratar" onClick={() => {}} />
             </div>
         </div>
     );
