@@ -6,6 +6,7 @@ import Tiktok from "@assets/svg/tiktok_svg.astro";
 import Close from "@assets/svg/close_svg.astro";
 import LogoFooter from "@assets/svg/logoFooter_svg.astro";
 import Selected from "@assets/svg/selected_svg.astro";
+import Olas from "@assets/svg/olas_svg.astro";
 
 export {
     MenuSvg,
@@ -15,5 +16,6 @@ export {
     Tiktok,
     Close,
     LogoFooter,
-    Selected
+    Selected,
+    Olas
 }

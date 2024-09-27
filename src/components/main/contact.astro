@@ -1,8 +1,6 @@
 ---
 import ContactDesignCard from "@components/card/ContactDesignCard.astro";
-import PrimaryButton from "@components/button/primaryButton";
-import FormInput from "@components/inputs/formInput";
-import FormTextarea from "@components/inputs/formTextarea";
+import Form from "@components/form/ContactForm";
 ---
 
 <section 
@@ -18,20 +16,6 @@ class="w-full h-fit xl:h-screen overflow-x-hidden grid grid-cols-1 xl:grid-cols-
     </div>
     <div class="w-full h-full flex items-center ">
       <!-- Formulario -->
-       <div class="w-full md:w-[90%] lg:w-[70%] mx-auto xl:mx-0 xl:w-full h-full lg:max-h-[50vh] xl:max-h-[80vh] overflow-hidden bg-white rounded-lg">
-          <div class="w-full py-5 flex bg-creative_orange  justify-center">
-            <h2 class="text-white text-2xl md:text-4xl font-bold">Cotizar una página web</h2>
-          </div>
-
-          <form class="w-full h-full gap-y-5 flex flex-col pb-[9vh] md:pb-[10vh] lg:pb-[7vh] xl:pb-[15vh] justify-center items-center py-14 px-[4dvw] ">
-            <FormInput client:only="react" title="nombre" placeholder="Nombre" />
-            <FormInput client:only="react" title="email" placeholder="Correo electrónico" />
-            <FormInput client:only="react" title="phone" placeholder="Número de telefono" />
-
-            <FormTextarea client:only="react" title="message" placeholder="Mensaje"/>
-
-            <PrimaryButton client:only="react" title="Enviar" onClick={()=>{}} />
-          </form>
-       </div>
+       <Form client:only="react"/>
     </div>
  </section>

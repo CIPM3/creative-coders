@@ -4,22 +4,22 @@ import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
 ---
 
 <section
-  class="w-full h-[260vh] overflow-x-hidden md:h-[130vh] lg:h-[100vh] xl:h-fit proyects-section relative pt-[5%] bg-creative_secondary
+  class="w-full h-fit overflow-x-hidden overflow-hidden  proyects-section relative pt-[5%] bg-creative_secondary
 "
 >
-  <div class="flex justify-between -z-[1]">
+  <div class="flex absolute justify-between inset-0 ">
     <img
-      class="opacity-35 w-[40vw]"
+      class="opacity-75 w-[30vw]"
       src="./assets/svg/Proyects_Icon.svg"
       alt=""
     />
     <img
-      class="opacity-35 w-[40vw] rotate-180"
+      class="opacity-75 w-[30vw] rotate-180"
       src="./assets/svg/Proyects_Icon.svg"
       alt=""
     />
   </div>
-  <div class="w-full h-full absolute inset-0">
+  <div class="w-full md:h-auto xl:h-full xl:min-h-screen">
     <div class="flex flex-col mt-10 items-center justify-center">
       <h2 class="text-4xl font-light text-creative_orange">
         Nuestras muestras
@@ -42,18 +42,21 @@ import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
         ))
       }
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center mb-[5vh]">
       <a
         href="/servicios"
         class="mx-auto text-creative_orange text-xl mt-10 font-light"
       >
         ver mas
       </a>
+      
     </div>
 
     <!-- Framework Banner -->
     <FrameworkBanner />
+
   </div>
+
 </section>
 
 <script>

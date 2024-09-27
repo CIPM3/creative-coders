@@ -1,0 +1,28 @@
+---
+import MainLayout from "@layouts/Layout.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import Form from "@components/form/ContactForm";
+import Footer from "@components/main/footer.astro";
+
+import { Olas } from "@assets/svg";
+
+const title = "CreativeCoders - Contacto"
+---
+
+<MainLayout title={title}>
+    <Navbar/>
+    <div class="md:h-[80vh] lg:h-[90vh] xl:min-h-screen relative pt-[12vh] flex justify-center items-center">
+        <div class="absolute inset-0 w-full h-full -z-10">
+            <img src="./assets/svg/mainImage.svg" class="w-full z-[1] h-full object-cover" alt="">
+            <div class="bg-creative_primary/90 flex justify-center overflow-x-hidden absolute inset-0 w-full h-full z-[2]">
+
+                <Olas className="w-[110vw] h-full fill-creative_gray"/>
+            </div>
+        </div>
+        <div class=" w-[90%] mb-10 lg:w-[80%] xl:w-[40%]">
+            <Form client:only="react"/>
+        </div>
+    </div>
+    <Footer/>
+</MainLayout>
+

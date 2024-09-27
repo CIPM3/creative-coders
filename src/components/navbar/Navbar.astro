@@ -4,7 +4,14 @@ import { navModel } from "@hooks/navModel";
 import WsButton from "@components/button/wsButton.astro";
 import NavButton from "@components/button/NavButton";
 
-import { MenuSvg,Instagram,LogoResponsive,Facebook,Tiktok,Close } from "@assets/svg";
+import {
+  MenuSvg,
+  Instagram,
+  LogoResponsive,
+  Facebook,
+  Tiktok,
+  Selected,
+} from "@assets/svg";
 
 const { navItems } = navModel;
 
@@ -17,10 +24,9 @@ const pathname = url.pathname;
 <!-- Renderizar los botones de navegación -->
 <nav
   id="navbar"
-  class="px-[3dvw] lg:px-[4dvw] xl:px-[7dvw] transition-colors duration-300 flex justify-between z-[99] fixed w-full py-5
-  "
+  class="px-[3dvw] lg:px-[4dvw] xl:px-[7dvw] transition-colors duration-300 flex justify-between z-[99] fixed w-full py-5"
 >
-  <div class="w-1/2 lg:w-[20%]  flex items-center">
+  <div class="w-1/2 lg:w-[20%] flex items-center">
     <a href="/">
       <img src="./assets/svg/logo.svg" class="w-full" alt="logo" />
     </a>
@@ -60,8 +66,11 @@ const pathname = url.pathname;
       id="close_menu"
       class="w-[70%] relative md:w-[60%] px-[4dvw] flex flex-col items-center h-full bg-white ml-auto"
     >
-
-      <p class="text-creative_secondary text-4xl font-extrabold absolute right-5 top-3 cursor-pointer">X</p>
+      <p
+        class="text-creative_secondary text-4xl font-extrabold absolute right-5 top-3 cursor-pointer"
+      >
+        X
+      </p>
 
       <a href="/">
         <LogoResponsive className="size-40 md:size-60" />
@@ -72,10 +81,13 @@ const pathname = url.pathname;
           navItems.map((item) => (
             <li class="w-full text-center gap-y-10 flex flex-col">
               <a
-                class="text-2xl md:text-4xl my-2 w-full text-creative_secondary font-bold text-center"
+                class={`text-2xl md:text-4xl ${pathname === item.url && "translate-x-5"} flex justify-center items-center relative my-2 w-full text-creative_secondary font-bold text-center`}
                 href={item.url}
               >
                 {item.title}
+                {pathname === item.url && (
+                  <Selected className="fill-creative_weird ml-5 size-5 -rotate-90" />
+                )}
               </a>
             </li>
           ))
@@ -83,9 +95,9 @@ const pathname = url.pathname;
       </ul>
 
       <div class="my-10 w-full px-[5dvw] flex gap-x-2 justify-center">
-        <Tiktok className="fill-creative_orange md:size-14 size-10"/>
-        <Instagram className="fill-creative_orange md:size-14 size-10"/>
-        <Facebook className="fill-creative_orange md:size-14 size-10"/>
+        <Tiktok className="fill-creative_orange md:size-14 size-10" />
+        <Instagram className="fill-creative_orange md:size-14 size-10" />
+        <Facebook className="fill-creative_orange md:size-14 size-10" />
       </div>
 
       <div class="w-full px-[5dvw] md:px-[7dvw] mt-3">
@@ -101,7 +113,7 @@ const pathname = url.pathname;
   const menu = document.getElementById("menu");
   const responsive_menu = document.getElementById("responsive_menu");
   const close_menu = document.getElementById("close_menu");
-  var isOpenMenu = false
+  var isOpenMenu = false;
 
   // Función para actualizar el fondo de la navbar al hacer scroll
   function changeNavbarBackground() {
@@ -115,19 +127,19 @@ const pathname = url.pathname;
     }
   }
 
-  function toggleMenu(){
-    isOpenMenu = !isOpenMenu
-    if(isOpenMenu){
-      responsive_menu?.classList.remove("invisible")
-      responsive_menu?.classList.add("block")
-    }else{
-      responsive_menu?.classList.remove("block")
-      responsive_menu?.classList.add("invisible")
+  function toggleMenu() {
+    isOpenMenu = !isOpenMenu;
+    if (isOpenMenu) {
+      responsive_menu?.classList.remove("invisible");
+      responsive_menu?.classList.add("visible");
+    } else {
+      responsive_menu?.classList.remove("visible");
+      responsive_menu?.classList.add("invisible");
     }
   }
 
   // Añadir el evento de scroll al window
   window.addEventListener("scroll", changeNavbarBackground);
-  menu?.addEventListener("click",toggleMenu)
-  close_menu?.addEventListener("click",toggleMenu)
+  menu?.addEventListener("click", toggleMenu);
+  close_menu?.addEventListener("click", toggleMenu);
 </script>
