@@ -1,6 +1,17 @@
 ---
 import ProyectCard from "@components/card/ProyectCard.astro";
 import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
+
+import Images from "@assets/images/";
+
+const PROYECTOS = [
+  Images.Cinefilos,
+  Images.Cosmeticos,
+  Images.Limpieza,
+  Images.Reparacion,
+  Images.Tattos
+]
+
 ---
 
 <section
@@ -37,15 +48,15 @@ import FrameworkBanner from "@components/banner/Frameworks.banner.astro";
       class="w-full h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-[7dvw] pt-[5%]"
     >
       {
-        Array.from({ length: 4 }).map((item, index) => (
-          <ProyectCard key={index} />
+        PROYECTOS.map((proyecto,index) => (
+          <ProyectCard img={proyecto.src} imgH={proyecto.height} />
         ))
       }
     </div>
     <div class="flex justify-center mb-[5vh]">
       <a
-        href="/servicios"
-        class="mx-auto text-creative_orange text-xl mt-10 font-light"
+        href="/muestras"
+        class="mx-auto text-creative_orange cursor-pointer text-xl mt-10 font-light"
       >
         ver mas
       </a>

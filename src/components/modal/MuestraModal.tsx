@@ -6,8 +6,8 @@ interface ModalTypes {
     onClose: () => void,
     onPass: () => void,
     onBack: () => void,
-    paquete: Array<string>,
-    paquetes: string[][],
+    paquete: ImageMetadata[],
+    paquetes: ImageMetadata[][],
     index: number
 }
 
@@ -35,19 +35,8 @@ const MuestraModal = ({ onClose, paquete, paquetes, index, onBack, onPass }: Mod
         <div className="fixed w-full h-full inset-0 z-[100] px-[7dvw] bg-creative_primary/90">
             {/* CONTROLS */}
             <div className='w-full flex justify-between flex-col-reverse xl:flex-row py-5 mt-[5%]'>
-                <div className={`flex ${paquetes.length >= index && index === 0 ? "justify-end w-full" : "justify-between"}  w-full xl:w-[70%]`}>
-                    {
-                        index !== 0 && paquetes.length > 1 && (
-                            <h3 onClick={onBack} className='text-white cursor-pointer font-light  text-xl md:text-2xl'>Muestra anterior</h3>
-                        )
-                    }
-                    {
-                        paquetes.length >= index && (
-                            <h3 onClick={onPass} className='text-white cursor-pointer font-light  text-xl md:text-2xl'>Siguiente muestra</h3>
-                        )
-                    }
-                </div>
-                <div className='w-full mb-3 xl:mb-0 xl:w-[30%] flex justify-end'>
+                
+                <div className='w-full mb-3 xl:mb-0 flex justify-end'>
                     <h3 onClick={() => onClose()} className='text-creative_orange cursor-pointer font-light text-2xl'>Salir x</h3>
                 </div>
             </div>
@@ -55,7 +44,7 @@ const MuestraModal = ({ onClose, paquete, paquetes, index, onBack, onPass }: Mod
             {/* PROYECTS IMAGE CONTENT */}
             <div className='w-full h-[79%] flex flex-col xl:flex-row gap-5'>
                 <div className='lg:w-full xl:w-[70%] max-h-[50%] md:max-h-[60%] lg:max-h-[80%] xl:max-h-full h-full bg-white rounded-md'>
-                    <img src={paquete[mainFoto]} className={`object-cover cursor-pointer rounded-md w-full h-full ${styles.card}`} alt="" />
+                    <img src={paquete[mainFoto].src} className={`object-cover object-top transition-all duration-[2s] hover:object-bottom cursor-pointer rounded-md w-full h-full ${styles.card}`} alt="" />
                 </div>
 
                 <div className='w-full xl:w-[30%] h-full'>
@@ -63,7 +52,7 @@ const MuestraModal = ({ onClose, paquete, paquetes, index, onBack, onPass }: Mod
 
                         {
                             paquete.map((img, index) => (
-                                <ModalProyectCard index={index} onClick={() => setmainFoto(index)} key={index} url={img} />
+                                <ModalProyectCard index={index} onClick={() => setmainFoto(index)} key={index} url={img.src} />
                             ))
                         }
                     </div>

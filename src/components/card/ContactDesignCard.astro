@@ -1,13 +1,16 @@
 ---
+import Images from "@assets/images/";
 
 interface Props {
-    numero:number
+    numero:number,
 }
 
 const { numero } = Astro.props
 
+const img = numero === 0 ? Images.Reparacion : Images.Tattos
+
 ---
 
-<div class={`w-1/2 h-[70%] bg-white absolute border-[2px] border-creative_gray ${numero === 0 ? "left-[12%] top-[2%]" : "left-[40%] top-[25%]"} `}>
-
+<div class={`w-1/2 h-[70%] bg-white absolute overflow-hidden  ${numero === 0 ? "left-[12%] top-[2%]" : "left-[40%] top-[25%]"} `}>
+    <img src={img.src} alt={`muestra-${numero}`}>
 </div>

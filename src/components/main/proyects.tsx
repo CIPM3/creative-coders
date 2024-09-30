@@ -2,33 +2,32 @@ import React, { useEffect, useState } from 'react';
 import PackageSelector from "@components/package/packageSelector";
 import ProyectCard from "@components/card/ProyectCard";
 
+import Images from "@assets/images/";
+
 import ModalProyectView from "@components/modal/MuestraModal";
 
 
 const Proyects = ({ transparent = false }) => {
     const webPackages = [
-        [
-            'https://picsum.photos/200/300?random=1',
-            'https://picsum.photos/200/300?random=2',
-            'https://picsum.photos/200/300?random=3',
-            'https://picsum.photos/200/300?random=4',
-            'https://picsum.photos/200/300?random=5',
-        ],
-        [
-            'https://picsum.photos/200/300?random=1',
-            'https://picsum.photos/200/300?random=2',
-            'https://picsum.photos/200/300?random=3',
-            'https://picsum.photos/200/300?random=4',
-            'https://picsum.photos/200/300?random=5',
-        ],
-        [
-            './assets/svg/main_front_image.svg',
-            './assets/svg/main_front_image.svg',
-            './assets/svg/main_front_image.svg',
-            './assets/svg/main_front_image.svg',
-            './assets/svg/main_front_image.svg',
-        ],
-    ] as string[][];
+       [
+        Images.Cinefilos,
+        Images.Cosmeticos,
+        Images.Limpieza,
+        Images.Reparacion,
+        Images.Tattos
+       ],
+       [
+        Images.Cosmeticos
+       ],[
+        Images.Limpieza
+       ],
+       [
+        Images.Reparacion
+       ],
+       [
+        Images.Tattos
+       ]
+    ] as ImageMetadata[][];
 
     const appPackages = [] as string[][];
 
@@ -95,6 +94,7 @@ const Proyects = ({ transparent = false }) => {
                     {currentPackages?.map((paquete, index) => (
                         <ProyectCard
                             index={index}
+                            img={paquete[0].src}
                             key={`${activePackage}-${index}`}
                             onClick={() => {
                                 setcurrentPackage(index)

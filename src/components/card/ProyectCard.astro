@@ -1,25 +1,32 @@
 ---
+interface Props {
+    img: string;
+    imgH: number;
+}
 
+const { img, imgH } = Astro.props;
 ---
 
 <div
-    class="w-full h-[410px] opacity-0 proyect-item cursor-pointer bg-white rounded-lg overflow-hidden relative group"
+    class="w-full h-[410px] proyect-item cursor-pointer bg-white rounded-lg overflow-hidden relative group"
+    style={`--image-height: ${imgH}px`}
 >
     <img
-        src="./assets/svg/mainImage.svg"
-        class="transition-all duration-[5s] ease-linear absolute w-full h-full top-0 object-cover hover-trigger"
+        src={img}
+        class="transition-all duration-[5s] ease-linear absolute w-full h-full top-0 object-cover object-top hover-trigger"
         alt=""
     />
 </div>
 
 <style>
-    /* Agrega esta sección en tu archivo CSS */
+    /* Estilos generales */
     .hover-trigger {
-        top: 0; /* Comienza desde la parte superior */
-        transition: top 5s linear; /* Ajusta la duración y la curva de velocidad según sea necesario */
+        object-position: 0% 0%; /* Comienza desde la parte superior (0%) */
+        transition: object-position 2s linear; /* Transición de la posición de la imagen */
     }
 
+    /* Cuando se activa el hover, la imagen se mueve hacia abajo */
     .group:hover .hover-trigger {
-        top: -100%; /* Cambia según el tamaño de tu imagen */
+        object-position: 0% 100%; /* Mueve la imagen hacia abajo, cubriendo todo el contenedor */
     }
 </style>

@@ -19,8 +19,8 @@ const { navItems } = navModel;
   >
     {
       navItems.map((navitem) => (
-        <li class="w-full  flex justify-center ">
-          <a class=" text-white text-xl font-bold" href={navitem.url}>
+        <li class="w-full flex justify-center ">
+          <a class=" text-white pl-[20%] w-full text-xl font-bold" href={navitem.url}>
             {navitem.title}
           </a>
         </li>
@@ -49,8 +49,8 @@ const { navItems } = navModel;
       <ul class="grid grid-cols-2 mt-5 md:hidden">
         {
           navItems.map((navitem) => (
-            <li class="w-full  flex justify-center ">
-              <a class=" text-white text-xl font-bold" href={navitem.url}>
+            <li class="w-full  flex justify-center mx-auto ">
+              <a class=" text-white w-full text-xl  font-bold" href={navitem.url}>
                 {navitem.title}
               </a>
             </li>
@@ -58,11 +58,11 @@ const { navItems } = navModel;
         }
       </ul>
     </div>
-    <ul class="md:grid grid-cols-2 mt-5 hidden">
+    <ul class="md:grid grid-cols-2 hidden">
       {
         navItems.map((navitem) => (
-          <li class="w-full  flex justify-center ">
-            <a class=" text-white text-xl font-bold" href={navitem.url}>
+          <li class="w-full  flex justify-center items-start ">
+            <a class=" text-white w-full pl-[20%] text-xl font-bold" href={navitem.url}>
               {navitem.title}
             </a>
           </li>
