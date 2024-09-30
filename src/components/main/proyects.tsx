@@ -9,27 +9,44 @@ import ModalProyectView from "@components/modal/MuestraModal";
 
 const Proyects = ({ transparent = false }) => {
     const webPackages = [
-       [
-        Images.Cinefilos,
-        Images.Cosmeticos,
-        Images.Limpieza,
-        Images.Reparacion,
-        Images.Tattos
-       ],
-       [
-        Images.Cosmeticos
-       ],[
-        Images.Limpieza
-       ],
-       [
-        Images.Reparacion
-       ],
-       [
-        Images.Tattos
-       ]
+        [
+            Images.Cinefilos,
+            Images.Cosmeticos,
+            Images.Limpieza,
+            Images.Reparacion,
+            Images.Tattos
+        ],
+        [
+            Images.Cosmeticos,
+            Images.Limpieza,
+            Images.Reparacion,
+            Images.Tattos,
+            Images.Cinefilos,
+        ], [
+            Images.Limpieza,
+            Images.Cinefilos,
+            Images.Cosmeticos,
+            Images.Reparacion,
+            Images.Tattos,
+
+        ],
+        [
+            Images.Reparacion,
+            Images.Limpieza,
+            Images.Cinefilos,
+            Images.Cosmeticos,
+            Images.Tattos,
+        ],
+        [
+            Images.Tattos,
+            Images.Limpieza,
+            Images.Cinefilos,
+            Images.Cosmeticos,
+            Images.Reparacion,
+        ]
     ] as ImageMetadata[][];
 
-    const appPackages = [] as string[][];
+    const appPackages = [] as ImageMetadata[][];
 
     const [activePackage, setActivePackage] = useState('web');
     const [ModalProyect, setModalProyect] = useState(false);
@@ -94,11 +111,11 @@ const Proyects = ({ transparent = false }) => {
                     {currentPackages?.map((paquete, index) => (
                         <ProyectCard
                             index={index}
-                            img={paquete[0].src}
+                            img={typeof paquete[0] === 'string' ? paquete[0] : paquete[0].src}
                             key={`${activePackage}-${index}`}
                             onClick={() => {
-                                setcurrentPackage(index)
-                                setModalProyect(true)
+                                setcurrentPackage(index);
+                                setModalProyect(true);
                             }}
                         />
                     ))}
