@@ -9,20 +9,72 @@ const { title } = Astro.props;
 <!doctype html>
 <html class="scroll-smooth snap-center overflow-x-hidden" lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Una nueva manera de crear apliaciones" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+		<meta
+			name="description"
+			content="Creative Coders: Expertos en desarrollo de páginas web, aplicaciones móviles y soluciones tecnológicas personalizadas. Impulsa tu negocio con nuestras soluciones de software innovadoras."
+		/>
+		<meta
+			name="keywords"
+			content="Creative Coders, desarrollo web, aplicaciones móviles, soluciones tecnológicas, software personalizado, tecnología"
+		/>
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Creative Coders" />
+		<meta
+			property="og:title"
+			content="Creative Coders - Desarrollo Web y Aplicaciones Móviles"
+		/>
+		<meta
+			property="og:description"
+			content="Soluciones de desarrollo web y móvil a medida para empresas y startups."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://creative-coders.vercel.app" />
+		<meta
+			property="og:image"
+			content="https://creative-coders.vercel.app/assets/svg/logo.svg"
+		/>
+		<meta property="og:locale" content="es_ES" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="Creative Coders - Desarrollo Web y Aplicaciones Móviles"
+		/>
+		<meta
+			name="twitter:description"
+			content="Creative Coders: Expertos en soluciones tecnológicas personalizadas para tu negocio."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://creative-coders.vercel.app/assets/svg/logo.svg"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Creative Coders",
+		"url": "https://creative-coders.vercel.app",
+		"logo": "https://creative-coders.vercel.app/assets/svg/logo.svg",
+		"sameAs": [
+			"https://www.facebook.com/creativecoders",
+			"https://www.twitter.com/creativecoders"
+		]
+	}
+</script>
+
 <style is:global>
 	:root {
 		--accent: 136, 58, 234;
@@ -40,8 +92,7 @@ const { title } = Astro.props;
 		font-optical-sizing: auto;
 		font-weight: <weight>;
 		font-style: normal;
-		font-variation-settings:
-			"wdth" 100;
+		font-variation-settings: "wdth" 100;
 	}
 	code {
 		font-family:
