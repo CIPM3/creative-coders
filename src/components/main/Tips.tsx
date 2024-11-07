@@ -7,11 +7,11 @@ const Tips = () => {
 
     const TipsData = [
         {
-            title: "convenciones familiares",
+            title: "convenciones Familiares",
             video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fconvenciones%20familiares.mp4?alt=media&token=a0c1e561-d981-4aa0-a12a-c41f85ad1c3a"
         },
         {
-            title: "jerarquia visual",
+            title: "jerarquia Visual",
             video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fjerarquia%20visual.mp4?alt=media&token=fef0c6de-5d1c-4480-8a65-1f15a53fa812"
         },
     ]
