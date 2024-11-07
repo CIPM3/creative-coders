@@ -8,10 +8,11 @@ interface ModalTypes {
     onBack: () => void,
     paquete: ImageMetadata[],
     paquetes: ImageMetadata[][],
-    index: number
+    index: number,
+    typeOfCard:string
 }
 
-const MuestraModal = ({ onClose, paquete, paquetes, index, onBack, onPass }: ModalTypes) => {
+const MuestraModal = ({ onClose, paquete, paquetes, index, onBack, onPass,typeOfCard }: ModalTypes) => {
     const [mainFoto, setmainFoto] = useState(0)
 
     const atras = () => {
@@ -43,8 +44,8 @@ const MuestraModal = ({ onClose, paquete, paquetes, index, onBack, onPass }: Mod
 
             {/* PROYECTS IMAGE CONTENT */}
             <div className='w-full h-[79%] flex flex-col xl:flex-row gap-5'>
-                <div className='lg:w-full xl:w-[70%] max-h-[50%] md:max-h-[60%] lg:max-h-[80%] xl:max-h-full h-full bg-white rounded-md'>
-                    <img src={paquete[mainFoto].src} className={`object-cover object-top transition-all duration-[2s] hover:object-bottom cursor-pointer rounded-md w-full h-full ${styles.card}`} alt="" />
+                <div className='lg:w-full xl:w-[70%] max-h-[50%] md:max-h-[60%] lg:max-h-[80%] xl:max-h-full h-full bg-creative_primary rounded-md'>
+                    <img src={paquete[mainFoto].src} className={`${typeOfCard === "app" ? "object-contain" : "object-cover object-top"}  transition-all duration-[2s] hover:object-bottom cursor-pointer rounded-md w-full h-full ${styles.card}`} alt="" />
                 </div>
 
                 <div className='w-full xl:w-[30%] h-full'>

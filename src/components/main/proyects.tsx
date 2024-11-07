@@ -46,7 +46,34 @@ const Proyects = ({ transparent = false }) => {
         ]
     ] as ImageMetadata[][];
 
-    const appPackages = [] as ImageMetadata[][];
+    const appPackages = [
+        //CINEFILOS APP IMAGES,
+        [
+            Images.CinefilosAppHome,
+            Images.CinefilosAppLoading,
+            Images.CinefilosAppLogin
+        ],
+        [
+            Images.OliviaAppHome,
+            Images.OliviaAppLoading,
+            Images.OliviaAppLogin
+        ],
+        [
+            Images.PuntotechAppHome,
+            Images.PuntotechAppLoading,
+            Images.PuntotechAppLogin
+        ],
+        [
+            Images.ShiningAppHome,
+            Images.ShiningAppLoading,
+            Images.ShiningAppLogin
+        ],
+        [
+            Images.VikingoAppHome,
+            Images.VikingoAppLoading,
+            Images.VikingoAppLogin
+        ]
+    ] as ImageMetadata[][];
 
     const [activePackage, setActivePackage] = useState('web');
     const [ModalProyect, setModalProyect] = useState(false);
@@ -113,6 +140,7 @@ const Proyects = ({ transparent = false }) => {
                             index={index}
                             img={typeof paquete[0] === 'string' ? paquete[0] : paquete[0].src}
                             key={`${activePackage}-${index}`}
+                            typeOfCard={activePackage}
                             onClick={() => {
                                 setcurrentPackage(index);
                                 setModalProyect(true);
@@ -127,6 +155,7 @@ const Proyects = ({ transparent = false }) => {
                     paquetes={currentPackages}
                     index={currentPackage}
                     paquete={currentPackages[currentPackage]}
+                    typeOfCard={activePackage}
                     onClose={() => setModalProyect(false)}
                     onBack={atras}
                     onPass={adelante}
