@@ -7,12 +7,24 @@ const Tips = () => {
 
     const TipsData = [
         {
-            title: "convenciones Familiares",
-            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fconvenciones%20familiares.mp4?alt=media&token=a0c1e561-d981-4aa0-a12a-c41f85ad1c3a"
+            title: "consejos para disenar tu app",
+            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fconsejos%20para%20disenar%20tu%20app.mp4?alt=media&token=7feaa4f4-4fe8-4552-bbf3-c969654fa872"
         },
         {
-            title: "jerarquia Visual",
-            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fjerarquia%20visual.mp4?alt=media&token=fef0c6de-5d1c-4480-8a65-1f15a53fa812"
+            title: "convenciones familiares",
+            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fconvenciones%20familiares.mp4?alt=media&token=6fc3b06a-9b28-441c-9b81-85fcf4e7c9a0"
+        },
+        {
+            title: "jerarquia visual",
+            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fjerarquia%20visual.mp4?alt=media&token=d9424c02-aaa6-4656-a5c9-93c06cc6306b"
+        },
+        {
+            title: "la simplicidad",
+            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fla%20simplicidad.mp4?alt=media&token=bcab81d8-e885-441f-b579-900e4b7a8b9a"
+        },
+        {
+            title: "retroalimentacion inmediata",
+            video: "https://firebasestorage.googleapis.com/v0/b/oratoriacursos-2d1d2.appspot.com/o/creative-coders%2Fretroalimentacion%20inmediata.mp4?alt=media&token=3dbc6217-0faf-4984-9cf1-6ab3a1d97a32"
         },
     ]
 
@@ -36,7 +48,7 @@ const Tips = () => {
 
                 {
                     TipsData.map((tip) => (
-                        <div className="gap-3 grid grid-cols-1 cursor-pointer" onClick={() => openModal(tip.video)}>
+                        <div className="gap-3 min-h-[300px] py-7 flex flex-col items-center cursor-pointer" onClick={() => openModal(tip.video)}>
                             <div className="bg-creative_primary rounded-md w-[300px] h-[200px] aspect-video flex items-center justify-center ">
                                 <Play className='text-white size-10' />
                             </div>
