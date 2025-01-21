@@ -40,8 +40,7 @@ const Tips = () => {
 
     return (
         <section
-            className="w-full h-fit gap-10 overflow-x-hidden grid grid-cols-1 xl:grid-cols-1 pb-16 gap-x-10  bg-creative_secondary
-  ">
+            className="w-full h-fit gap-10 overflow-x-hidden grid grid-cols-1 xl:grid-cols-1 pb-16 gap-x-10  bg-creative_secondary">
             <h2 className="text-white text-5xl font-bold px-[7dvw] ">Tips para tu Sitio web o App</h2>
 
             <div className="w-full h-fit pl-[7dvw] pr-[1dvw] gap-6 overflow-x-auto items-center flex">
@@ -49,7 +48,9 @@ const Tips = () => {
                 {
                     TipsData.map((tip) => (
                         <div className="gap-3 min-h-[300px] py-7 flex flex-col items-center cursor-pointer" onClick={() => openModal(tip.video)}>
-                            <div className="bg-creative_primary rounded-md w-[300px] h-[200px] aspect-video flex items-center justify-center ">
+                            <div className="bg-creative_primary relative rounded-md w-[300px] h-[200px] aspect-video flex items-center justify-center ">
+                                <img src="./assets/svg/logo.svg" className="size-20 bottom-0 absolute" alt="logo" />
+                                <span className='text-white absolute top-5 first-letter:uppercase'>{tip.title}</span>
                                 <Play className='text-white size-10' />
                             </div>
                             <h2 className="text-white first-letter:uppercase text-xl font-light">{tip.title}</h2>
